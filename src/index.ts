@@ -1,4 +1,4 @@
-import { appendFileSync, writeFileSync, access, readdirSync, constants as fsconstants, mkdirSync } from "node:fs";
+import { appendFileSync, writeFileSync, readdirSync, constants as fsconstants, mkdirSync, accessSync } from "node:fs";
 import { rimraf } from "rimraf";
 import { resolve } from "node:path";
 
@@ -49,10 +49,12 @@ async function writeToEntrants(list: any) {
         compensation: application.compensation
       });
 
-      access(programPath, fsconstants.F_OK, (err) => {
-        if (err) writeFileSync(programPath, '[' + entrantInfo);
-        else appendFileSync(programPath, "," + entrantInfo);
-      });
+      try {
+        accessSync(programPath, fsconstants.F_OK);
+        appendFileSync(programPath, "," + entrantInfo);
+      } catch (err) {
+        writeFileSync(programPath, '[' + entrantInfo);
+      }
     }
   }
   console.log("Обработана одна страница!")
