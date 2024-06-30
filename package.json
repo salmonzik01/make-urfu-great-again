@@ -1,0 +1,23 @@
+{
+  "name": "make-urfu-great-again",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsc": "^2.0.4",
+    "tslib": "^2.6.3",
+    "typescript": "^5.4.5"
+  },
+  "repository": "git@github.com:salmonzik01/make-urfu-great-again.git",
+  "author": "SalmonZIk <salmonzik01@gmail.com@>",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "^5.0.7"
+  }
+}
